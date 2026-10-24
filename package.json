@@ -1,0 +1,22 @@
+{
+  "name": "price-alerts-bot",
+  "version": "0.1.0",
+  "description": "Get a notification when a product drops below your price, using a retail price MCP server.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node --import tsx src/index.ts",
+    "test": "node --import tsx --test test/*.test.ts",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/client": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

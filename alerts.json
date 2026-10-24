@@ -1,0 +1,6 @@
+[
+  { "product": "prd_0xnive", "below": 13000 },
+  { "product": "prd_10labo", "below": 800 },
+  { "product": "prd_01colu", "below": 1100 },
+  { "product": "prd_0gnesc", "below": 5500, "retailers": ["cl-jumbo", "cl-unimarc"] }
+]

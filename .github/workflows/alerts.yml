@@ -1,0 +1,25 @@
+# Revisa las alertas una vez al día. Configura en Settings → Secrets and variables → Actions:
+# PRICES_API_KEY (opcional: sin ella usa la sandbox), NTFY_TOPIC y/o WEBHOOK_URL.
+name: Price alerts
+
+on:
+  schedule:
+    - cron: "0 13 * * *"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm start
+        env:
+          PRICES_API_KEY: ${{ secrets.PRICES_API_KEY }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+          LANG: es_CL.UTF-8
