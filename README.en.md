@@ -11,7 +11,7 @@ Get notified when a product drops below your price at any Chilean store: on the 
 Needs Node 22 or later. No account needed: without `PRICTO_API_KEY` it connects to the public sandbox over MCP (`/mcp/sandbox`, no login), which answers with sample data.
 
 ```bash
-git clone https://github.com/MarceloFarrMintii/price-alerts-bot && cd price-alerts-bot
+git clone https://github.com/Pricto/price-alerts-bot && cd price-alerts-bot
 npm install
 npm start                        # checks alerts.json
 npm start -- find "sunscreen"    # finds the product_id for an alert
@@ -43,7 +43,7 @@ The bot notifies once, on the day the price crosses the threshold: it compares t
 | `NTFY_TOPIC` | Publishes to `ntfy.sh/<topic>`. Install the ntfy app (or open `https://ntfy.sh/<topic>`) and subscribe to the same topic. There is no account: the topic name works as a password, so pick one that is hard to guess. `NTFY_URL` points to your own server if you have one. |
 | `WEBHOOK_URL` | Sends a JSON `POST`: `text` and `content` hold the message (the fields Slack and Discord incoming webhooks read) and `alerts` holds the details of each alert. |
 | `PRICTO_API_KEY` | Your API key. Without it, the sandbox. |
-| `PRICTO_API_URL` | Another API instance (default `https://mercali-platform.vercel.app`) |
+| `PRICTO_API_URL` | Another API instance (default `https://pricto.dev`) |
 | `LANG` | `es_CL.UTF-8` for messages and product names in Spanish; English otherwise. |
 
 Without `NTFY_TOPIC` or `WEBHOOK_URL`, alerts only go to the console.

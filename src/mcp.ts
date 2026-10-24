@@ -1,7 +1,7 @@
 // El bot usa las mismas tools del MCP de Pricto que un agente: search_products, get_prices, etc.
 import { Client, StreamableHTTPClientTransport } from "@modelcontextprotocol/client";
 
-const DEFAULT_URL = "https://mercali-platform.vercel.app";
+const DEFAULT_URL = "https://pricto.dev";
 
 export type Tools = { call<T>(name: string, args: Record<string, unknown>): Promise<T>; close(): Promise<void> };
 
