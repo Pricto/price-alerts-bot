@@ -1,7 +1,7 @@
 {
   "name": "price-alerts-bot",
   "version": "0.1.0",
-  "description": "Get a notification when a product drops below your price, using a retail price MCP server.",
+  "description": "Get a notification when a product drops below your price, using the Pricto MCP server.",
   "license": "MIT",
   "private": true,
   "type": "module",

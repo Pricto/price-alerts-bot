@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "prices": {
+    "pricto": {
       "type": "http",
       "url": "https://mercali-platform.vercel.app/mcp/sandbox"
     }

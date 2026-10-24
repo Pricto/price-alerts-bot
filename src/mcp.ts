@@ -1,12 +1,12 @@
-// El bot usa las mismas tools MCP que un agente: search_products, get_prices, etc.
+// El bot usa las mismas tools del MCP de Pricto que un agente: search_products, get_prices, etc.
 import { Client, StreamableHTTPClientTransport } from "@modelcontextprotocol/client";
 
 const DEFAULT_URL = "https://mercali-platform.vercel.app";
 
 export type Tools = { call<T>(name: string, args: Record<string, unknown>): Promise<T>; close(): Promise<void> };
 
-/** Sin PRICES_API_KEY se conecta a la sandbox sin login (/mcp/sandbox); con key, a /mcp. */
-export async function connect(key = process.env.PRICES_API_KEY, base = process.env.PRICES_API_URL || DEFAULT_URL): Promise<Tools> {
+/** Sin PRICTO_API_KEY se conecta a la sandbox sin login (/mcp/sandbox); con key, a /mcp. */
+export async function connect(key = process.env.PRICTO_API_KEY, base = process.env.PRICTO_API_URL || DEFAULT_URL): Promise<Tools> {
   const url = new URL(key ? "/mcp" : "/mcp/sandbox", base);
   const options = key ? { requestInit: { headers: { Authorization: `Bearer ${key}` } } } : undefined;
   const client = new Client({ name: "price-alerts-bot", version: "0.1.0" });

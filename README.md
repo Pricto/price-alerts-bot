@@ -2,13 +2,13 @@
 
 [English](README.en.md) · Español
 
-Te avisa cuando un producto baja del precio que elegiste en alguna tienda de Chile: por la consola, con una notificación push de [ntfy](https://ntfy.sh) (sin crear cuenta) o con un webhook (Slack, Discord o tu propio servidor). Habla con la API por MCP, con las mismas tools que usa un agente, y un agente puede configurarle las alertas.
+Te avisa cuando un producto baja del precio que elegiste en alguna tienda de Chile: por la consola, con una notificación push de [ntfy](https://ntfy.sh) (sin crear cuenta) o con un webhook (Slack, Discord o tu propio servidor). Habla con [Pricto](https://pricto.dev) por MCP, con las mismas tools que usa un agente, y un agente puede configurarle las alertas.
 
 ![El bot encuentra un producto y avisa dos bajas de precio](docs/terminal-es.png)
 
 ## Pruébalo en un minuto
 
-Requiere Node 22 o superior. No necesitas cuenta: sin `PRICES_API_KEY` se conecta a la sandbox pública por MCP (`/mcp/sandbox`, sin login), que responde con datos de ejemplo.
+Requiere Node 22 o superior. No necesitas cuenta: sin `PRICTO_API_KEY` se conecta a la sandbox pública por MCP (`/mcp/sandbox`, sin login), que responde con datos de ejemplo.
 
 ```bash
 git clone https://github.com/MarceloFarrMintii/price-alerts-bot && cd price-alerts-bot
@@ -42,15 +42,15 @@ El bot avisa una vez, el día en que el precio cruza el umbral: compara el preci
 |---|---|
 | `NTFY_TOPIC` | Publica en `ntfy.sh/<tema>`. Instala la app de ntfy (o abre `https://ntfy.sh/<tema>`) y suscríbete al mismo tema. No hay cuenta: el nombre del tema funciona como contraseña, así que elige uno difícil de adivinar. `NTFY_URL` cambia el servidor si tienes uno propio. |
 | `WEBHOOK_URL` | Hace `POST` con JSON: `text` y `content` traen el mensaje (los campos que leen los webhooks entrantes de Slack y de Discord) y `alerts`, el detalle de cada aviso. |
-| `PRICES_API_KEY` | Tu API key. Sin ella, la sandbox. |
-| `PRICES_API_URL` | Otra instancia de la API (por omisión `https://mercali-platform.vercel.app`) |
+| `PRICTO_API_KEY` | Tu API key. Sin ella, la sandbox. |
+| `PRICTO_API_URL` | Otra instancia de la API (por omisión `https://mercali-platform.vercel.app`) |
 | `LANG` | `es_CL.UTF-8` para mensajes y nombres en español; si no, en inglés. |
 
 Sin `NTFY_TOPIC` ni `WEBHOOK_URL`, el aviso sale solo por la consola.
 
 ## Que corra todos los días
 
-El repo trae [`.github/workflows/alerts.yml`](.github/workflows/alerts.yml): GitHub Actions lo corre una vez al día (13:00 UTC) y también a mano desde la pestaña Actions. En Settings → Secrets and variables → Actions agrega `NTFY_TOPIC` o `WEBHOOK_URL`, y `PRICES_API_KEY` para datos reales. Para cambiar las alertas, edita `alerts.json` y haz commit.
+El repo trae [`.github/workflows/alerts.yml`](.github/workflows/alerts.yml): GitHub Actions lo corre una vez al día (13:00 UTC) y también a mano desde la pestaña Actions. En Settings → Secrets and variables → Actions agrega `NTFY_TOPIC` o `WEBHOOK_URL`, y `PRICTO_API_KEY` para datos reales. Para cambiar las alertas, edita `alerts.json` y haz commit.
 
 ## Con tu agente
 
@@ -82,7 +82,7 @@ npm test
 npm run typecheck
 ```
 
-`PRICES_API_URL=http://localhost:8787 npm test` los corre contra una instancia local.
+`PRICTO_API_URL=http://localhost:8787 npm test` los corre contra una instancia local.
 
 ## Licencia
 

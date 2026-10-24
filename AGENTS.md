@@ -10,7 +10,7 @@ Este repo avisa cuando un producto baja de un precio. Las alertas están en `ale
 - `below`: el aviso sale cuando el precio queda bajo este monto, en la moneda local (CLP sin decimales).
 - `retailers` (opcional): IDs de tienda; sin él, todas.
 
-El servidor MCP `prices` (en `.mcp.json`, la sandbox sin login) trae las tools. Cuando la persona pida una alerta:
+El servidor MCP `pricto` (en `.mcp.json`, la sandbox de Pricto sin login) trae las tools. Cuando la persona pida una alerta:
 
 1. Busca el producto con `search_products` y confirma con ella cuál es si hay más de uno parecido.
 2. Mira el precio de hoy con `get_prices` y dile en qué tienda y a qué hora se observó. Si el umbral ya está sobre el precio actual, avísale que la alerta saldría de inmediato.
