@@ -1,11 +1,35 @@
 {
   "name": "price-alerts-bot",
   "version": "0.1.0",
-  "description": "Get a notification when a product drops below your price, using the Pricto MCP server.",
+  "description": "Alertas de bajas de precio en supermercados y farmacias de Chile por MCP, con la API de Pricto: avisa por ntfy, webhook o consola.",
+  "keywords": [
+    "alertas-de-precio",
+    "price-alerts",
+    "supermercados",
+    "farmacias",
+    "chile",
+    "mcp",
+    "model-context-protocol",
+    "jumbo",
+    "unimarc",
+    "cruz-verde",
+    "pricto",
+    "ntfy"
+  ],
+  "homepage": "https://pricto.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pricto/alertas-de-precios-chile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pricto/alertas-de-precios-chile/issues"
+  },
   "license": "MIT",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "start": "node --import tsx src/index.ts",
     "test": "node --import tsx --test test/*.test.ts",
